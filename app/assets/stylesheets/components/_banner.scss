@@ -1,0 +1,29 @@
+// .banner::before {
+// 	position: absolute;
+// 	content: '';
+// 	height: 6rem;
+// 	background: #f4f4f4;
+// 	width: 101%;
+// 	/* overflow: hidden; */
+// 	bottom: -9%;
+// 	transform: skew(10deg, -3deg);
+// }
+
+.banner {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		position: absolute;
+		content: '';
+		height: 6rem;
+		background: #f4f4f4;
+		width: 101%;
+		/* overflow: hidden; */
+		bottom: -9%;
+		transform: skew(10deg, -3deg);
+	}
+	.title {
+		text-transform: uppercase;
+		letter-spacing: 1.3px;
+	}
+}
