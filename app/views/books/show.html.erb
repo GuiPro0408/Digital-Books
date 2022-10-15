@@ -1,6 +1,16 @@
-<img src="<%= @book.poster_url %>" class="rounded w-50">
-<h1>Title : <%= @book.title %></h1>
-<p>Author : <%= @book.author %></p>
-<p>Category : <%= @book.category %></p>
-<p>Overview : <%= @book.overview %></p>
-<p>Price_per_day : <%= @book.price_per_day %>$</p>
+
+<div class="container m-auto border-1 shadow-sm p-3 bg-light">
+  <img src="<%= @book.poster_url %>" class="rounded w-50 m-auto mb-5">
+  <h1 class = "text-uppercase mb-3 fw-bold" style="text-decoration:underline;"><%= @book.title %></h1>
+  <p class = "fw-bold mb-1">Author :</p>
+  <p class = "mb-3"><%= @book.author %></p>
+
+  <p class = "fw-bold mb-1">Category :</p>
+  <p class = "mb-3"><%= @book.category %></p>
+
+  <p class = "fw-bold mb-1">Overview :</p>
+  <p class = "mb-3"><%= @book.overview %></p>
+
+  <p class = "fw-bold mb-1">Price/day :</p>
+  <p class = "mb-3"><%= @book.price_per_day %>$</p>
+</div>
