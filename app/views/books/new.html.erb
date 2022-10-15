@@ -1,0 +1,14 @@
+<div class="mt-5 container border-1 shadow p-3 rounded">
+  <%= simple_form_for(@book) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :overview %>
+    <%= f.input :author %>
+    <%= f.input :category %>
+    <%= f.input :poster_url %>
+    <%= f.input :price_per_day %>
+    <%= f.input :content %>
+    <div class="d-grid">
+      <%= f.submit class: 'btn btn-primary rounded' %>
+    </div>
+  <% end %>
+</div>
