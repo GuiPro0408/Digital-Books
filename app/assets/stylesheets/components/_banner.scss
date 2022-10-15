@@ -25,5 +25,56 @@
 	.title {
 		text-transform: uppercase;
 		letter-spacing: 1.3px;
+		font-family: 'montserrat', sans-serif;
+		b {
+			font-style: normal;
+			color: rgb(255, 255, 82);
+		}
+		p {
+			font-size: 1.2rem;
+			text-transform: capitalize;
+		}
 	}
 }
+.card-category {
+  background-size: cover;
+  background-position: center;
+	background-attachment: fixed;
+  height: 180px;
+  display: flex;
+	text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+	min-height: 16rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	@media (min-width: 1400px) {
+		min-height: 16rem;
+	}
+}
+.image-books {
+	width: 28rem !important;
+}
+.flex-center {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	flex-direction: column;
+}
+.espacement {
+	padding: 1rem;
+  margin: 4rem;
+}
+a {
+	text-decoration: none;
+}
+
+.marg-0 {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.margBott {margin-bottom: 5rem;}
