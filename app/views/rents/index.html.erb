@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <% @rents.each do |rent| %>
+    <div class="border mb-3 p-3 shadow-sm">
+      <h2>Book : <%= rent.book.title %></h2>
+      <h2>Number of days : <%= number_of_days = (rent.end_at - rent.started_at).round %> days</h2>
+      <p>Price per day: <%= rent.book.price_per_day  %> $</p>
+      <p>Total: <%= number_of_days * rent.book.price_per_day  %> $</p>
+      <p>Started at: <%=  rent.started_at %></p>
+      <p>End at: <%=  rent.end_at %></p>
+
+      <%= link_to "Delete", rent_path(rent), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
+  <% end %>
+</div>
