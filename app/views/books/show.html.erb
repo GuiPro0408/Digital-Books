@@ -13,4 +13,22 @@
 
   <p class = "fw-bold mb-1">Price/day :</p>
   <p class = "mb-3"><%= @book.price_per_day %>$</p>
+
+  <% if @existed_rent.exists? %>
+    <%= link_to("Read", content_book_path, class: 'btn btn-info') %>
+  <% end %>
+
+  <% if !@existed_rent.exists? %>
+    <div class="form-wrapper">
+      <%= simple_form_for [@book, @rent] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :started_at, as: :date%>
+          <%= f.input :end_at, as: :date%>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, :class => "btn btn-success btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

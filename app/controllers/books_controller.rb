@@ -1,11 +1,20 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show]
+  before_action :set_book, only: %i[show content]
+  def content
+    @content = @book.content
+    @existed_rent = Rent.where(user_id: current_user.id, book_id: @book).exists?
+  end
 
   def index
     @books = Book.all
   end
 
   def show
+    @rent = Rent.new(book_id: @book)
+    # Si current_user so ID trouve dans rents lerla et si sa book ki nou eter currently la so ID li ici li trouve dan rents lerla li paraitre
+    # Current_user.id
+    # Book.id
+    @existed_rent = Rent.where(user_id: current_user.id, book_id: @book)
   end
 
   def new

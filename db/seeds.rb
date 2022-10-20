@@ -17,15 +17,7 @@ images_url = [
 
 Book.destroy_all
 
-def content
-  paragraph = []
-  10.times do 
-    content = Faker::Lorem.paragraph(sentence_count: 50)
-    paragraph << content
-  end
 
-  return paragraph
-end
 
 10.times do
   Book.create(
@@ -33,7 +25,7 @@ end
     overview: Faker::Lorem.paragraph(sentence_count: 5),
     author: Faker::Book.author,
     category: Faker::Book.genre,
-    content: content(),
+    content: Faker::Lorem.paragraph(sentence_count: 500),
     poster_url: images_url.sample,
     price_per_day: rand(1..10)
   )
