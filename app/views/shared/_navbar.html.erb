@@ -2,7 +2,7 @@
   <div class="container-fluid">
 		<div class="col-md-3 menu sliding-name">
 		<div class="image">
-			<%= link_to "http://localhost:3000", class: "navbar-brand hover-transform" do %>
+			<%= link_to root_path, class: "navbar-brand hover-transform" do %>
 				<%= image_tag "logo-optimised"  %>
 			<% end %>
 			<div class="text">
@@ -26,7 +26,7 @@
 									<%= link_to "books", books_path, class: "nav-link hover-animation" %>
 							</li>
 							<li class="nav-item">
-								<%= link_to "Rental", root_path, class: "nav-link hover-animation" %>
+								<%= link_to "Rental", rents_path, class: "nav-link hover-animation" %>
 							</li>
 						<% else %>
 						<% end %>
