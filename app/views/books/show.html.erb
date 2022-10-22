@@ -1,69 +1,120 @@
+<div class="global background-img-container">
+	<div class="container">
+		<div class="row card flex-direction-row margBott30 margTop30">
+			<div class="col-md-4 mx-auto">
+				<img src="<%= @book.poster_url %>" class="rounded w-50 m-auto mb-5 width50">
+			</div>
+			<div class="col-md-8">
+				<h1 class = "text-uppercase mb-3 heading-three"><%= @book.title %></h1>
+				<p class = "satisfy-mini mb-1">
+					Author
+				</p>
+				<p class = "mb-3 raleway-text">
+					<%= @book.author %>
+				</p>
+				<p class = "satisfy-mini mb-1">
+					Category
+				</p>
+				<p class = "mb-3 raleway-text">
+					<%= @book.category %>
+				</p>
+				<p class = "satisfy-mini mb-1">
+					Overview
+				</p>
+				<p class = "mb-3 raleway-text">
+					<%= @book.overview %>
+				</p>
+				<p class = "satisfy-mini mb-1">
+					Price/day
+				</p>
+				<p class = "mb-3 raleway-text">
+					<%= @book.price_per_day %>
+					$
+				</p>
+				<% if @existed_rent.present? %>
+						<%= link_to("Read", content_book_path, class: 'btn btn-primaire margBott') %>
+					<% end %>
+			</div>
+		</div>
+	</div>
+	<%#  %>
+	<div class="container">
+		<div class="row card flex-direction-row padBott20 margBott30 margTop30">
+			<div class="col-md-12">
 
-<div class="container m-auto border-1 shadow-sm p-3 bg-light">
-  <img src="<%= @book.poster_url %>" class="rounded w-50 m-auto mb-5">
-  <h1 class = "text-uppercase mb-3 fw-bold" style="text-decoration:underline;"><%= @book.title %></h1>
-  <p class = "fw-bold mb-1">Author :</p>
-  <p class = "mb-3"><%= @book.author %></p>
 
-  <p class = "fw-bold mb-1">Category :</p>
-  <p class = "mb-3"><%= @book.category %></p>
+					<% if @existed_rent.present? %>
+						<div class = "">
+							<h2 class="heading-three">Number of days : <%= number_of_days = (@existed_rent.end_at - @existed_rent.started_at).round %> days</h2>
+							<p class="satify-mini">Total: <%= number_of_days * @book.price_per_day  %> $</p>
+							<p class="satify-mini">Started at: <%=  @existed_rent.started_at %></p>
+							<p class="satify-mini">End at: <%=  @existed_rent.end_at %></p>
 
-  <p class = "fw-bold mb-1">Overview :</p>
-  <p class = "mb-3"><%= @book.overview %></p>
+							<%= link_to "Delete", rent_path(@existed_rent), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+						</div>
+					<% end %>
+					<% if !@existed_rent.present? %>
+						<div class="form-wrapper">
+							<%= simple_form_for [@book, @rent] do |f| %>
+								<div class="form-inputs">
+									<%= f.input :started_at, as: :date%>
+									<%= f.input :end_at, as: :date%>
+								</div>
+								<div class="form-actions">
+									<%= f.submit "Rent", :class => "btn btn-primaire" %>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+			</div>
+		</div>
+	</div>
+	<%#  %>
+	<div class="container">
+		<div class="row card flex-direction-row padBott20 margBott30 margTop30">
+			<div class="col-md-12">
+				  <% if @book.reviews.present? %>
+						<div class="">
+							<% @book.reviews.each do |review| %>
+								<%= image_tag "https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= review.user.name %>
+								<div class="card border-none">
+								<p class="satisfy-mini">
+										Rating
+								</p>
+								<p style="display: flex; flex-direction:row;"><%= review.rating   %> <span style="color: orange; display: flex; flex-direction:row;"> &#9733;</span></p>
+								</div>
+								<div class="card border-none">
+								<p class="satisfy-mini">
+									comment
+								</p>
+								<%= review.comment %>
 
-  <p class = "fw-bold mb-1">Price/day :</p>
-  <p class = "mb-3"><%= @book.price_per_day %>$</p>
-
-  <% if @existed_rent.present? %>
-    <%= link_to("Read", content_book_path, class: 'btn btn-info') %>
-  <% end %>
-
-  <% if @existed_rent.present? %>
-    <div class = "border shadow_sm p-3 mt-5 mb-5">
-      <h2>Number of days : <%= number_of_days = (@existed_rent.end_at - @existed_rent.started_at).round %> days</h2>
-      <p>Total: <%= number_of_days * @book.price_per_day  %> $</p>
-      <p>Started at: <%=  @existed_rent.started_at %></p>
-      <p>End at: <%=  @existed_rent.end_at %></p>
-
-      <%= link_to "Delete", rent_path(@existed_rent), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    </div>
-  <% end %>
-
-  <% if !@existed_rent.present? %>
-    <div class="form-wrapper">
-      <%= simple_form_for [@book, @rent] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :started_at, as: :date%>
-          <%= f.input :end_at, as: :date%>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, :class => "btn btn-success btn-lg" %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+								</div>
 
 
-  <% if @book.reviews.present? %>
-    <div class="mt-5 mb-5 border ">
-      <% @book.reviews.each do |review| %>
-        <%= review.user.name %>
-        <%= review.comment %>
-        <%= review.rating %>
 
-        <% if review.user == current_user %>
-          <%= link_to "Delete", review_path(review), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
+								<% if review.user == current_user %>
+									<%= link_to "Delete", review_path(review), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+								<% end %>
+							<% end %>
+						</div>
+					<% end %>
 
-  <% if !@existed_review.present? %>
-    <%= simple_form_for [@book, @review] do |f| %>
-      <%= f.input :rating, collection: 0..5 %>
-      <%= f.input :comment%>
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
+					<% if !@existed_review.present? %>
+						<%= simple_form_for [@book, @review] do |f| %>
+							<%= f.input :rating, collection: 1..5  %>
+							<%= f.input :comment %>
+							<%= f.submit "Insert review", :class => 'btn btn-secondaire' %>
+						<% end %>
+					<% end %>
+			</div>
+		</div>
+	</div>
 </div>
-
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+			<%= link_to "Back", root_path, class: ' btn-primaire' %>
+		</div>
+</div>
+</div>

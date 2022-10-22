@@ -34,7 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_041138) do
     t.date "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rent_price"
     t.index ["book_id"], name: "index_rents_on_book_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
   end

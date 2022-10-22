@@ -7,7 +7,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to book_path(@book)
     else
-      render "books/show", status: :unprocessable_entity
+      @rent = Rent.new
+			render "books/show", status: :unprocessable_entity
     end
   end
 
