@@ -12,7 +12,13 @@ images_url = [
   "https://www.loc.gov/static/programs/national-book-festival/images/posters/2021.jpg",
   "https://media.istockphoto.com/vectors/bright-retro-style-childrens-book-club-invitation-poster-vector-id535039943?s=170667a",
   "https://media.gettyimages.com/vectors/bright-retro-style-childrens-book-club-invitation-poster-vector-id535039939",
-  "https://upload.wikimedia.org/wikipedia/en/6/67/UNESCO_World_Book_and_Copyright_Day_2012_poster.png"
+  "https://upload.wikimedia.org/wikipedia/en/6/67/UNESCO_World_Book_and_Copyright_Day_2012_poster.png",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-orig-14299.jpg?itok=wPpEKSe6",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-cust-7349.jpg?itok=AEnzquEW",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-orig-955.jpg?itok=vkCHWJ26",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-orig-29439.jpg?itok=UL3V2FNr",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-orig-3.jpg?itok=YtO2dOq8",
+  "https://manybooks.net/sites/default/files/styles/220x330sc/public/old-covers/cover-auto-18294.jpg?itok=BUc7Pn4v"
 ]
 
 overview = [

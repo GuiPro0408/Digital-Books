@@ -1,0 +1,28 @@
+
+.reading-container {
+  font-family: 'Roboto Mono', monospace;
+  width: 600px;
+  height: 650px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+  padding: 15px;
+  border: 1px solid rgba($color: #000000, $alpha: 0.2);
+}
+
+.book-poster {
+  width: 600px;
+  height: 650px;
+  border-radius: 5px;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.page-content-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
