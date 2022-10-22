@@ -11,10 +11,12 @@ class BooksController < ApplicationController
 
   def show
     @rent = Rent.new(book_id: @book)
+    @review = Review.new(book_id: @book)
     # Si current_user so ID trouve dans rents lerla et si sa book ki nou eter currently la so ID li ici li trouve dan rents lerla li paraitre
     # Current_user.id
     # Book.id
-    @existed_rent = Rent.where(user_id: current_user.id, book_id: @book)
+    @existed_review = Review.find_by(user_id: current_user.id, book_id: @book)
+    @existed_rent = Rent.find_by(user_id: current_user.id, book_id: @book)
   end
 
   def new
