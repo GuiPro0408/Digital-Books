@@ -39,7 +39,7 @@ class RentsController < ApplicationController
   def destroy
     @rent = Rent.find(params[:id])
     @rent.destroy
-    redirect_to rents_path, status: :see_other
+    redirect_to book_path(@rent.book), status: :see_other
   end
 
   private

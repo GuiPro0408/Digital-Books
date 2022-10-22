@@ -14,11 +14,22 @@
   <p class = "fw-bold mb-1">Price/day :</p>
   <p class = "mb-3"><%= @book.price_per_day %>$</p>
 
-  <% if @existed_rent.exists? %>
+  <% if @existed_rent.present? %>
     <%= link_to("Read", content_book_path, class: 'btn btn-info') %>
   <% end %>
 
-  <% if !@existed_rent.exists? %>
+  <% if @existed_rent.present? %>
+    <div class = "border shadow_sm p-3 mt-5 mb-5">
+      <h2>Number of days : <%= number_of_days = (@existed_rent.end_at - @existed_rent.started_at).round %> days</h2>
+      <p>Total: <%= number_of_days * @book.price_per_day  %> $</p>
+      <p>Started at: <%=  @existed_rent.started_at %></p>
+      <p>End at: <%=  @existed_rent.end_at %></p>
+
+      <%= link_to "Delete", rent_path(@existed_rent), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
+  <% end %>
+
+  <% if !@existed_rent.present? %>
     <div class="form-wrapper">
       <%= simple_form_for [@book, @rent] do |f| %>
         <div class="form-inputs">
@@ -31,4 +42,28 @@
       <% end %>
     </div>
   <% end %>
+
+
+  <% if @book.reviews.present? %>
+    <div class="mt-5 mb-5 border ">
+      <% @book.reviews.each do |review| %>
+        <%= review.user.name %>
+        <%= review.comment %>
+        <%= review.rating %>
+
+        <% if review.user == current_user %>
+          <%= link_to "Delete", review_path(review), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if !@existed_review.present? %>
+    <%= simple_form_for [@book, @review] do |f| %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.input :comment%>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
 </div>
+
