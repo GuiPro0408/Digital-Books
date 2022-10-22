@@ -8,8 +8,41 @@
   transition: opacity 0.3s ease;
 }
 
+.btn-banner {
+	color: $gray;
+	padding: 8px 24px;
+	border-radius: 3px;
+	font-weight: 400;
+	font-family: $secondaryFont;
+	background: $alabaster;
+	transition: $transitionTimingFast;
+	&:hover {
+		background: $indigoDye;
+		color: $light;
+		transition: $transitionTimingFast;
+	}
+}
+
+
 .btn-ghost:hover {
   opacity: 1;
+}
+
+.btn-primaire {
+	color: $light !important;
+	background: $prussianBlue;
+	padding: 8px 24px;
+	border-radius: 3px;
+	font-weight: 400;
+	font-family: $primaryFont;
+	&:hover {
+		background: lighten($prussianBlue, 15);
+		color: $gray !important;
+		transition: $transitionTimingFast;
+		&:before {
+			display: none;
+		}
+	}
 }
 
 .btn-flat {

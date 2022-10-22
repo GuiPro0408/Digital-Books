@@ -1,12 +1,95 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+	padding: 17px 0px 9px 0;
+	z-index: 10;
+	.navbar-collapse {
+		flex-grow: 0;
+	}
+	.navbar-brand img {
+		width: 40px;
+	}
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+
+.menu {
+	.hover-transform img {
+		transform: scale(1);
+		transition: $transitionTimingFast;
+		&:hover {
+			transform: scale(0.95);
+			transition: $transitionTimingFast;
+		}
+	}
+}
+.nav-item {
+	position: relative;
+	a.nav-link.hover-animation {
+		color: $gray;
+		font-family: $primaryFont;
+		font-weight: 400;
+		font-size: 1rem;
+		letter-spacing: 1.2px;
+		text-transform: uppercase;
+		&:before {
+			position: absolute;
+			content: '';
+			background: $prussianBlue;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 0%;
+			height: 2px;
+			transition: $transitionTimingFast;
+		}
+		// Hover state
+		&:hover {
+			&:before {
+				position: absolute;
+				content: '';
+				background: $prussianBlue;
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 50%;
+				height: 2px;
+				transition: $transitionTimingFast;
+			}
+		}
+	}
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+.sliding-name {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	.image {
+		display: flex;
+		z-index: 2;
+
+		.text {
+			display: flex;
+			align-items: flex-end;
+			color: $gray;
+			font-family: $secondaryFont;
+			text-transform: uppercase;
+			z-index: 1;
+			transform: translateX(-15rem);
+			transition: $transitionTimingSlow;
+			b {
+				text-transform: uppercase;
+				color: $indigoDye;
+				letter-spacing: 0.4px;
+				font-family: $primaryFont;
+			}
+		}
+		&:hover {
+			.text {
+				transform: translateX(0rem);
+				transition: $transitionTimingSlow;
+			}
+		}
+	}
+
 }
