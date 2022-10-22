@@ -36,7 +36,26 @@
 	font-weight: 400;
 	font-family: $primaryFont;
 	&:hover {
-		background: lighten($prussianBlue, 15);
+		background: darken($alabaster, 15);
+		color: $gray !important;
+		transition: $transitionTimingFast;
+		&:before {
+			display: none;
+		}
+	}
+}
+.padBott {
+	margin-bottom: 1rem;
+}
+.btn-secondaire {
+	color: $light !important;
+	background: $indigoDye;
+	padding: 8px 24px;
+	border-radius: 3px;
+	font-weight: 400;
+	font-family: $primaryFont;
+	&:hover {
+		background: darken($alabaster, 30);
 		color: $gray !important;
 		transition: $transitionTimingFast;
 		&:before {
@@ -45,6 +64,17 @@
 	}
 }
 
+
+
+
+.btn-espace {
+	margin-top: 3%;
+	margin-left: 3%;
+}
+
+.espacement1 {
+	padding: 2rem 0 2rem 0;
+}
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -71,4 +101,15 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+.btn-danger {
+	color: $light;
+	transition: $transitionTimingFast;
+	&:hover {
+		color: $light;
+		background: $prussianBlue;
+		border: transparent;
+		transition: $transitionTimingFast;
+	}
 }

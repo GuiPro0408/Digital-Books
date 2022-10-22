@@ -1,0 +1,51 @@
+.width50 {
+	width: 18rem !important;
+	transition: $transitionTimingFast;
+	&:hover {
+		transform: scale(0.95);
+		transition: $transitionTimingFast;
+	}
+}
+.flex-direction-row {
+	flex-direction: row !important;
+}
+.margTop30 {
+	margin-top: 30px;
+}
+.margBott30 {
+	margin-bottom: 32px;
+	padding: 4rem 0rem 0rem 3rem;
+}
+.margBott {
+	margin-bottom: 12px;
+}
+.satisfy-mini, label.form-label.date.optional, label.form-label.select.optional, label.form-label.text.required {
+	font-family: $primaryFont;
+	font-size: 1.1rem;
+	letter-spacing: 0.3px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: lighten($indigoDye,15);
+}
+.raleway-text {
+	font-family: $secondaryFont;
+	letter-spacing: 0.5px;
+	font-weight: 400;
+	font-size: 1rem;
+}
+.padBott20 {
+	padding: 3rem 0rem 3rem 3rem !important;
+}
+body {
+	background-color: #f6fafb;
+}
+
+
+.form-select {
+	background-color: transparent;
+	border-color: 1px $indigoDye;
+}
+.border-none {
+	border: transparent;
+	padding: 1rem 0rem 1rem 0rem;
+}
