@@ -14,7 +14,8 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <p class="alert"><%= alert %></p>
-		<a id="scrollTop" data-controller="scrolltop"></a>
+		<%# <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> %>
+		<a href="#section1" id="myBtn"><i class="fa-solid fa-arrow-up"></i></a>
     <%= yield %>
 
   </body>
